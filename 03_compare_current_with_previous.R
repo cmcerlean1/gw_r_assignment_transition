@@ -25,13 +25,20 @@ source("02_scrape_nominees.R")
 
 #Your code here#
 
-# YOUR CODE
+#load new data from webscrape
 
+staff_data_current <- readRDS("processed_data/transition_data_scraped.rds")
+transition_data_current
 
+# load previous archived data
+staff_data_previous <- readRDS("archived_data/transition_data_archived_2020_11_24t09_52.rds")
+transition_data_previous
 
+#find new names added since previous
+new_staffnames <- anti_join(transition_data_current, transition_data_previous, by = "idstring")
 
-
-
+#see it
+new_staffnames
 
 
 
